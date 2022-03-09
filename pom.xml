@@ -13,6 +13,7 @@
     <maven.compiler.target>17</maven.compiler.target>
     <encoding>UTF-8</encoding>
     <chrome.driver.path>${project.basedir}/src/test/resources/chromedriver.exe</chrome.driver.path>
+    <firefox.driver.path>${project.basedir}/src/test/resources/geckodriver.exe</firefox.driver.path>
     <selenium.version>4.1.1</selenium.version>
     <log4j.version>2.17.1</log4j.version>
     <jupiter.version>5.8.2</jupiter.version>
@@ -28,6 +29,7 @@
         <configuration>
           <systemPropertyVariables>
             <webdriver.chrome.driver>${chrome.driver.path}</webdriver.chrome.driver>
+            <webdriver.firefor.driver>${firefox.driver.path}</webdriver.firefor.driver>
           </systemPropertyVariables>
         </configuration>
       </plugin>
