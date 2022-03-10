@@ -12,7 +12,7 @@ public class BaseTest {
   @BeforeEach
   public void setUp() {
 
-    Configuration.browserSize = "1920x1080";
+    Configuration.browserSize = "1600x900";
     open(ONLINER_HOME_PAGE_LINK);
 
   }
