@@ -5,8 +5,7 @@ import java.util.Arrays;
 public enum Driver {
 
   CHROME("chrome", new ChromeDriverCreator()),
-  FIREFOX("firefox", new FirefoxDriverCreator()),
-  REMOTEDRIVER("remotedriver", new RemoteDriverCreator());
+  FIREFOX("firefox", new FirefoxDriverCreator());
 
   private final String driverType;
   private final WebDriverCreator webDriverCreator;

@@ -27,6 +27,13 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M1</version>
         <configuration>
+          <!--          for parallel start-->
+          <properties>
+            <configurationParameters>
+              junit.jupiter.execution.parallel.enabled=true
+              junit.jupiter.execution.parallel.mode.default=concurrent
+            </configurationParameters>
+          </properties>
           <systemPropertyVariables>
             <webdriver.chrome.driver>${chrome.driver.path}</webdriver.chrome.driver>
             <webdriver.firefor.driver>${firefox.driver.path}</webdriver.firefor.driver>
