@@ -9,64 +9,48 @@
   <version>1.0-SNAPSHOT</version>
 
   <properties>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
     <encoding>UTF-8</encoding>
     <chrome.driver.path>${project.basedir}/src/test/resources/chromedriver.exe</chrome.driver.path>
     <firefox.driver.path>${project.basedir}/src/test/resources/geckodriver.exe</firefox.driver.path>
-    <selenium.version>4.1.1</selenium.version>
+    <selenium.version>4.1.2</selenium.version>
     <log4j.version>2.17.1</log4j.version>
     <jupiter.version>5.8.2</jupiter.version>
+    <aspectj.version>1.9.4</aspectj.version>
+    <allure.version>2.17.3</allure.version>
   </properties>
 
-  <build>
-
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.0.0-M1</version>
-        <configuration>
-          <!--          for parallel start-->
-          <properties>
-            <configurationParameters>
-              junit.jupiter.execution.parallel.enabled=true
-              junit.jupiter.execution.parallel.mode.default=concurrent
-            </configurationParameters>
-          </properties>
-          <systemPropertyVariables>
-            <webdriver.chrome.driver>${chrome.driver.path}</webdriver.chrome.driver>
-            <webdriver.firefor.driver>${firefox.driver.path}</webdriver.firefor.driver>
-          </systemPropertyVariables>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-
   <dependencies>
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-junit5</artifactId>
+      <version>2.17.3</version>
+    </dependency>
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-selenide</artifactId>
+      <version>2.17.3</version>
+    </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
       <version>${jupiter.version}</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
       <version>${jupiter.version}</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.junit.vintage</groupId>
       <artifactId>junit-vintage-engine</artifactId>
       <version>${jupiter.version}</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-params</artifactId>
       <version>${jupiter.version}</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
@@ -97,13 +81,11 @@
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
       <version>3.22.0</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>selenide</artifactId>
-      <version>6.3.3</version>
-      <scope>test</scope>
+      <version>6.3.4</version>
     </dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
@@ -111,5 +93,46 @@
       <version>4.1.2</version>
     </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M5</version>
+        <configuration>
+          <argLine>
+            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+          </argLine>
+          <systemProperties>
+            <property>
+              <name>allure.results.directory</name>
+              <value>${basedir}/target/allure-results</value>
+            </property>
+            <property>
+              <name>junit.jupiter.extensions.autodetection.enabled</name>
+              <value>true</value>
+            </property>
+          </systemProperties>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+      <plugin>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-maven</artifactId>
+        <version>2.10.0</version>
+        <configuration>
+          <reportVersion>${allure.version}</reportVersion>
+          <resultsDirectory>${basedir}/target/allure-results</resultsDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>
