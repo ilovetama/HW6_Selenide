@@ -1,4 +1,4 @@
-package org.epam.tests.tests;
+package com.epam.tests.tests;
 
 import static com.codeborne.selenide.Selenide.open;
 

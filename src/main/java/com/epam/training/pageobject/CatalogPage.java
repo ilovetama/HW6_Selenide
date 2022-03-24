@@ -1,6 +1,6 @@
-package org.epam.training.pageobject;
+package com.epam.training.pageobject;
 
-import org.epam.training.framework.BasePage;
+import com.epam.training.framework.BasePage;
 
 public class CatalogPage extends BasePage {
 

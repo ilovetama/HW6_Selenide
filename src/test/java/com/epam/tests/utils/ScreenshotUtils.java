@@ -1,4 +1,4 @@
-package org.epam.tests.utils;
+package com.epam.tests.utils;
 
 import com.codeborne.selenide.Screenshots;
 import io.qameta.allure.Allure;

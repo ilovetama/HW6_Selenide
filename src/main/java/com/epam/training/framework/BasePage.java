@@ -1,4 +1,4 @@
-package org.epam.training.framework;
+package com.epam.training.framework;
 
 import org.openqa.selenium.WebDriver;
 

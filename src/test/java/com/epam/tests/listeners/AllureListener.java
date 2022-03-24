@@ -1,7 +1,7 @@
-package org.epam.tests.listeners;
+package com.epam.tests.listeners;
 
-import org.epam.tests.tests.BaseTest;
-import org.epam.tests.utils.ScreenshotUtils;
+import com.epam.tests.tests.BaseTest;
+import com.epam.tests.utils.ScreenshotUtils;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestWatcher;
 import org.slf4j.Logger;
