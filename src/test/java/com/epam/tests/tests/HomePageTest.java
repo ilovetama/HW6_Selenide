@@ -8,6 +8,7 @@ import com.epam.tests.listeners.AllureListener;
 import com.epam.training.pageobject.CatalogPage;
 import com.epam.training.pageobject.OnlinerHomePage;
 import io.qameta.allure.Description;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -18,6 +19,7 @@ public class HomePageTest extends BaseTest {
 
   @Test
   @Tag("test1")
+  @DisplayName("checking that catalog item title is visible")
   @Description("checking that catalog item title is visible")
   public void testCatalogItemTitleIsVisible() {
     $x(OnlinerHomePage.CATALOG_LINK).click();
@@ -29,6 +31,16 @@ public class HomePageTest extends BaseTest {
   @DisplayName("checking that screenshot is taken when test is failed")
   @Description("checking that screenshot is taken when test is failed")
   public void testShouldBeFailed() {
+    $x(OnlinerHomePage.CATALOG_LINK).click();
+    $$x(CatalogPage.CATALOG_ITEM_TITLE).shouldHave(size(11));
+  }
+
+  @Test
+  @Disabled("disabled for screenshot creation checking")
+  @Tag("test5")
+  @DisplayName("checking that screenshot is taken when test is skipped")
+  @Description("checking that screenshot is taken when test is skipped")
+  public void testShouldBeSkipped() {
     $x(OnlinerHomePage.CATALOG_LINK).click();
     $$x(CatalogPage.CATALOG_ITEM_TITLE).shouldHave(size(11));
   }

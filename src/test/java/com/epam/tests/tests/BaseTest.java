@@ -17,6 +17,5 @@ public class BaseTest {
         (new AllureSelenide()).screenshots(true).savePageSource(true));
     Configuration.browserSize = "1600x900";
     open(ONLINER_HOME_PAGE_LINK);
-
   }
 }
