@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-@ExtendWith({AllureListener.class})
+@ExtendWith(AllureListener.class)
 public class CatalogPageTest extends BaseTest {
 
   @Test

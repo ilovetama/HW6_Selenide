@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-@ExtendWith({AllureListener.class})
+@ExtendWith(AllureListener.class)
 public class HomePageTest extends BaseTest {
 
   @Test
@@ -21,5 +21,13 @@ public class HomePageTest extends BaseTest {
   public void testCatalogItemTitleIsVisible() {
     $x(OnlinerHomePage.CATALOG_LINK).click();
     $$x(CatalogPage.CATALOG_ITEM_TITLE).shouldHave(size(10));
+  }
+
+  @Test
+  @Tag("test4")
+  @Description("checking that screenshot is taken when test is failed")
+  public void testShouldBeFailed() {
+    $x(OnlinerHomePage.CATALOG_LINK).click();
+    $$x(CatalogPage.CATALOG_ITEM_TITLE).shouldHave(size(11));
   }
 }
