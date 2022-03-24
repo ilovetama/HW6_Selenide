@@ -8,6 +8,7 @@ import com.epam.tests.listeners.AllureListener;
 import com.epam.training.pageobject.CatalogPage;
 import com.epam.training.pageobject.OnlinerHomePage;
 import io.qameta.allure.Description;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -25,6 +26,7 @@ public class HomePageTest extends BaseTest {
 
   @Test
   @Tag("test4")
+  @DisplayName("checking that screenshot is taken when test is failed")
   @Description("checking that screenshot is taken when test is failed")
   public void testShouldBeFailed() {
     $x(OnlinerHomePage.CATALOG_LINK).click();
