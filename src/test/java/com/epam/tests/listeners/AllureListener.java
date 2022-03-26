@@ -1,7 +1,8 @@
 package com.epam.tests.listeners;
 
+import static com.epam.tests.utils.ScreenshotUtils.takeScreenshotAndAttachToAllureReport;
+
 import com.epam.tests.tests.BaseTest;
-import com.epam.tests.utils.ScreenshotUtils;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestWatcher;
 import org.slf4j.Logger;
@@ -13,11 +14,11 @@ public class AllureListener implements TestWatcher {
 
   public void testFailed(ExtensionContext context, Throwable cause) {
     LOG.info("Test Failed for test {}: ", context.getDisplayName());
-    ScreenshotUtils.takeScreenshotAndAttachToAllureReport();
+    takeScreenshotAndAttachToAllureReport();
   }
 
   public void testAborted(ExtensionContext context, Throwable cause) {
     LOG.info("Test Aborted for test {}: ", context.getDisplayName());
-    ScreenshotUtils.takeScreenshotAndAttachToAllureReport();
+    takeScreenshotAndAttachToAllureReport();
   }
 }

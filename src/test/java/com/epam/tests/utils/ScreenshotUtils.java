@@ -15,6 +15,7 @@ public final class ScreenshotUtils {
   public static void takeScreenshotAndAttachToAllureReport() {
     try {
       File screenshotAs = Screenshots.takeScreenShotAsFile();
+      assert screenshotAs != null;
       Allure.addAttachment("Screenshot", FileUtils.openInputStream(screenshotAs));
     } catch (IOException var1) {
       LOG.error("Error creating screenshot");

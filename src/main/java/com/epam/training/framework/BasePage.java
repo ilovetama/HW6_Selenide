@@ -7,6 +7,7 @@ public abstract class BasePage {
   private final WebDriver driver;
   private final WebDriverDiscovery webDriverDiscovery;
 
+
   public BasePage() {
     webDriverDiscovery = new WebDriverDiscovery();
     driver = webDriverDiscovery.getWebDriver();
