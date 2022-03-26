@@ -4,7 +4,7 @@ import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
-import com.codeborne.selenide.junit5.TextReportExtension;
+import com.epam.tests.listeners.AllureListener;
 import com.epam.training.pageobject.CatalogPage;
 import com.epam.training.pageobject.OnlinerHomePage;
 import io.qameta.allure.Description;
@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-@ExtendWith(TextReportExtension.class)
+@ExtendWith(AllureListener.class)
 public class HomePageTest extends BaseTest {
 
   @Test
@@ -38,7 +38,7 @@ public class HomePageTest extends BaseTest {
   @Test
   @Disabled("screenshot creation checking")
   @Tag("test5")
-  @DisplayName("checking that screenshot is taken when test is skipped")
+  @DisplayName("screenshot is taken when test is skipped")
   @Description("checking that screenshot is taken when test is skipped")
   public void testShouldBeSkipped() {
     $x(OnlinerHomePage.CATALOG_LINK).click();
