@@ -4,7 +4,7 @@ import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
-import com.epam.tests.listeners.AllureListener;
+import com.codeborne.selenide.junit5.TextReportExtension;
 import com.epam.training.pageobject.CatalogPage;
 import com.epam.training.pageobject.OnlinerHomePage;
 import io.qameta.allure.Description;
@@ -14,12 +14,12 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-@ExtendWith(AllureListener.class)
+@ExtendWith(TextReportExtension.class)
 public class HomePageTest extends BaseTest {
 
   @Test
   @Tag("test1")
-  @DisplayName("checking that catalog item title is visible")
+  @DisplayName("catalog item title is visible")
   @Description("checking that catalog item title is visible")
   public void testCatalogItemTitleIsVisible() {
     $x(OnlinerHomePage.CATALOG_LINK).click();
@@ -28,7 +28,7 @@ public class HomePageTest extends BaseTest {
 
   @Test
   @Tag("test4")
-  @DisplayName("checking that screenshot is taken when test is failed")
+  @DisplayName("screenshot is taken when test is failed")
   @Description("checking that screenshot is taken when test is failed")
   public void testShouldBeFailed() {
     $x(OnlinerHomePage.CATALOG_LINK).click();
@@ -36,7 +36,7 @@ public class HomePageTest extends BaseTest {
   }
 
   @Test
-  @Disabled("disabled for screenshot creation checking")
+  @Disabled("screenshot creation checking")
   @Tag("test5")
   @DisplayName("checking that screenshot is taken when test is skipped")
   @Description("checking that screenshot is taken when test is skipped")

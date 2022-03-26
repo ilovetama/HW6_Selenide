@@ -4,19 +4,21 @@ import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
-import com.epam.tests.listeners.AllureListener;
+import com.codeborne.selenide.junit5.TextReportExtension;
 import com.epam.training.pageobject.CatalogPage;
 import com.epam.training.pageobject.OnlinerHomePage;
 import io.qameta.allure.Description;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-@ExtendWith(AllureListener.class)
+@ExtendWith(TextReportExtension.class)
 public class CatalogPageTest extends BaseTest {
 
   @Test
   @Tag("test2")
+  @DisplayName("'Computers and Networks' menu is visible")
   @Description("checking that 'Computers and Networks' menu is visible")
   public void testComputersAndNetworksMenuIsVisible() {
     $x(OnlinerHomePage.CATALOG_LINK).click();
@@ -26,6 +28,7 @@ public class CatalogPageTest extends BaseTest {
 
   @Test
   @Tag("test3")
+  @DisplayName("product title and product description in 'Components' section is visible")
   @Description("checking that product title and product description in 'Components' section is visible")
   public void testComponentsSectionTitleAndDescriptionIsVisible() {
     $x(OnlinerHomePage.CATALOG_LINK).click();

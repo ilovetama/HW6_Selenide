@@ -22,6 +22,7 @@
   </properties>
 
   <dependencies>
+    <!--  Allure report  -->
     <dependency>
       <groupId>io.qameta.allure</groupId>
       <artifactId>allure-junit5</artifactId>
@@ -32,6 +33,7 @@
       <artifactId>allure-selenide</artifactId>
       <version>2.17.3</version>
     </dependency>
+    <!--  Junit5  -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
@@ -62,21 +64,34 @@
       <artifactId>commons-lang3</artifactId>
       <version>3.12.0</version>
     </dependency>
+    <!--  Logs  -->
     <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-core</artifactId>
-      <version>${log4j.version}</version>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.36</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-api</artifactId>
-      <version>${log4j.version}</version>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.7.36</version>
+      <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-slf4j-impl</artifactId>
-      <version>${log4j.version}</version>
-    </dependency>
+
+    <!--    <dependency>-->
+    <!--      <groupId>org.apache.logging.log4j</groupId>-->
+    <!--      <artifactId>log4j-core</artifactId>-->
+    <!--      <version>${log4j.version}</version>-->
+    <!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--      <groupId>org.apache.logging.log4j</groupId>-->
+    <!--      <artifactId>log4j-api</artifactId>-->
+    <!--      <version>${log4j.version}</version>-->
+    <!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--      <groupId>org.apache.logging.log4j</groupId>-->
+    <!--      <artifactId>log4j-slf4j-impl</artifactId>-->
+    <!--      <version>${log4j.version}</version>-->
+    <!--    </dependency>-->
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
@@ -91,12 +106,6 @@
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-api</artifactId>
       <version>4.1.2</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-failsafe-plugin</artifactId>
-      <version>3.0.0-M5</version>
-      <scope>test</scope>
     </dependency>
   </dependencies>
 
