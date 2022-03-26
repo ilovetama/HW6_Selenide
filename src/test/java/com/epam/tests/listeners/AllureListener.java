@@ -13,7 +13,7 @@ public class AllureListener implements TestWatcher {
   private static final Logger LOG = LoggerFactory.getLogger(BaseTest.class);
 
   public void testFailed(ExtensionContext context, Throwable cause) {
-    LOG.info("Test Failed for test {}: ", context.getDisplayName());
+    //LOG.info("Test Failed for test {}: ", context.getDisplayName());
     takeScreenshotAndAttachToAllureReport();
   }
 
