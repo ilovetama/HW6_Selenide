@@ -4,6 +4,7 @@ import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
+import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 import com.codeborne.selenide.junit5.SoftAssertsExtension;
 import com.epam.tests.listeners.AllureListener;
@@ -32,6 +33,9 @@ public class HomePageTest extends BaseTest {
     $$x(CatalogPage.CATALOG_ITEM_TITLE)
         .as("Catalog item title quantity is incorrect")
         .shouldHave(size(10));
+    assertThat($$x(CatalogPage.CATALOG_ITEM_TITLE))
+        .as("Catalog item title content is missed")
+        .isNotEmpty();
   }
 
   @Test
