@@ -16,6 +16,7 @@ public class BaseTest {
   void setUp() {
     SelenideLogger.addListener("AllureSelenide",
         (new AllureSelenide()).screenshots(true).savePageSource(false));
+    Configuration.savePageSource = false;
     Configuration.screenshots = false;
     Configuration.assertionMode = SOFT;
     Configuration.browserSize = "1600x900";
