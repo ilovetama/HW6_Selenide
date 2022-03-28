@@ -1,5 +1,6 @@
 package com.epam.tests.tests;
 
+import static com.codeborne.selenide.AssertionMode.SOFT;
 import static com.codeborne.selenide.Selenide.open;
 
 import com.codeborne.selenide.Configuration;
@@ -15,6 +16,7 @@ public class BaseTest {
   void setUp() {
     SelenideLogger.addListener("AllureSelenide",
         (new AllureSelenide()).screenshots(true).savePageSource(true));
+    Configuration.assertionMode = SOFT;
     Configuration.browserSize = "1600x900";
     open(ONLINER_HOME_PAGE_LINK);
   }

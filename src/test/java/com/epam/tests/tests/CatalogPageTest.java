@@ -1,9 +1,11 @@
 package com.epam.tests.tests;
 
 import static com.codeborne.selenide.CollectionCondition.size;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
+import com.codeborne.selenide.junit5.SoftAssertsExtension;
 import com.epam.tests.listeners.AllureListener;
 import com.epam.training.pageobject.CatalogPage;
 import com.epam.training.pageobject.OnlinerHomePage;
@@ -14,6 +16,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 @ExtendWith(AllureListener.class)
+@ExtendWith(SoftAssertsExtension.class)
+
 public class CatalogPageTest extends BaseTest {
 
   @Test
@@ -21,9 +25,17 @@ public class CatalogPageTest extends BaseTest {
   @DisplayName("'Computers and Networks' menu is visible")
   @Description("checking that 'Computers and Networks' menu is visible")
   public void testComputersAndNetworksMenuIsVisible() {
-    $x(OnlinerHomePage.CATALOG_LINK).click();
-    $x(CatalogPage.CATALOG_CLASSIFIER_LINK).click();
-    $$x(CatalogPage.CATALOG_MENU_ITEM_TITLE).shouldHave(size(10));
+    $x(OnlinerHomePage.CATALOG_LINK)
+        .as("Catalog link is not visible")
+        .shouldBe(visible)
+        .click();
+    $x(CatalogPage.CATALOG_CLASSIFIER_LINK)
+        .as("'Computers and Networks' link is not visible")
+        .shouldBe(visible)
+        .click();
+    $$x(CatalogPage.CATALOG_MENU_ITEM_TITLE)
+        .as("'Computers and Networks' menu size is incorrect")
+        .shouldHave(size(10));
   }
 
   @Test
@@ -31,10 +43,23 @@ public class CatalogPageTest extends BaseTest {
   @DisplayName("product title and product description in 'Components' section is visible")
   @Description("checking that product title and product description in 'Components' section is visible")
   public void testComponentsSectionTitleAndDescriptionIsVisible() {
-    $x(OnlinerHomePage.CATALOG_LINK).click();
-    $x(CatalogPage.CATALOG_CLASSIFIER_LINK).click();
-    $x(CatalogPage.CATALOG_CLASSIFIER_CATEGORY_LINK).click();
-    $$x(CatalogPage.PRODUCT_TITLE).shouldHave(size(13));
-    $$x(CatalogPage.PRODUCT_DESCRIPTION).shouldHave(size(13));
+    $x(OnlinerHomePage.CATALOG_LINK)
+        .as("Catalog link is not visible")
+        .shouldBe(visible)
+        .click();
+    $x(CatalogPage.CATALOG_CLASSIFIER_LINK)
+        .as("'Computers and Networks' link is not visible")
+        .shouldBe(visible)
+        .click();
+    $x(CatalogPage.CATALOG_CLASSIFIER_CATEGORY_LINK)
+        .as("'Components' link is not visible")
+        .shouldBe(visible)
+        .click();
+    $$x(CatalogPage.PRODUCT_TITLE)
+        .as("Product title quantity is incorrect in 'Components' section")
+        .shouldHave(size(13));
+    $$x(CatalogPage.PRODUCT_DESCRIPTION)
+        .as("Product description quantity is incorrect in 'Components' section")
+        .shouldHave(size(13));
   }
 }

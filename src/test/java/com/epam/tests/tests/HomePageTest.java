@@ -1,6 +1,7 @@
 package com.epam.tests.tests;
 
 import static com.codeborne.selenide.CollectionCondition.size;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -22,8 +23,13 @@ public class HomePageTest extends BaseTest {
   @DisplayName("catalog item title is visible")
   @Description("checking that catalog item title is visible")
   public void testCatalogItemTitleIsVisible() {
-    $x(OnlinerHomePage.CATALOG_LINK).click();
-    $$x(CatalogPage.CATALOG_ITEM_TITLE).shouldHave(size(10));
+    $x(OnlinerHomePage.CATALOG_LINK)
+        .as("Catalog link is not visible")
+        .shouldBe(visible)
+        .click();
+    $$x(CatalogPage.CATALOG_ITEM_TITLE)
+        .as("Catalog item title quantity is incorrect")
+        .shouldHave(size(10));
   }
 
   @Test
