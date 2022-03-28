@@ -4,7 +4,6 @@ import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
-import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 import com.codeborne.selenide.junit5.SoftAssertsExtension;
 import com.epam.tests.listeners.AllureListener;
@@ -37,9 +36,6 @@ public class CatalogPageTest extends BaseTest {
     $$x(CatalogPage.CATALOG_MENU_ITEM_TITLE)
         .as("'Computers and Networks' menu size is incorrect")
         .shouldHave(size(10));
-    assertThat($$x(CatalogPage.CATALOG_MENU_ITEM_TITLE))
-        .as("'Computers and Networks' menu content is missed")
-        .isNotEmpty();
   }
 
   @Test
@@ -62,14 +58,8 @@ public class CatalogPageTest extends BaseTest {
     $$x(CatalogPage.PRODUCT_TITLE)
         .as("Product title quantity is incorrect in 'Components' section")
         .shouldHave(size(13));
-    assertThat($$x(CatalogPage.PRODUCT_TITLE))
-        .as("Product title content is missed in 'Components' section")
-        .isNotEmpty();
     $$x(CatalogPage.PRODUCT_DESCRIPTION)
         .as("Product description quantity is incorrect in 'Components' section")
         .shouldHave(size(13));
-    assertThat($$x(CatalogPage.PRODUCT_DESCRIPTION))
-        .as("Product description content is missed in 'Components' section")
-        .isNotEmpty();
   }
 }

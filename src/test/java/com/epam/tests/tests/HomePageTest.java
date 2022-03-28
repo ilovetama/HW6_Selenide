@@ -1,10 +1,10 @@
 package com.epam.tests.tests;
 
 import static com.codeborne.selenide.CollectionCondition.size;
+import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
-import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 import com.codeborne.selenide.junit5.SoftAssertsExtension;
 import com.epam.tests.listeners.AllureListener;
@@ -32,10 +32,22 @@ public class HomePageTest extends BaseTest {
         .click();
     $$x(CatalogPage.CATALOG_ITEM_TITLE)
         .as("Catalog item title quantity is incorrect")
-        .shouldHave(size(10));
-    assertThat($$x(CatalogPage.CATALOG_ITEM_TITLE))
-        .as("Catalog item title content is missed")
-        .isNotEmpty();
+        .shouldHave(size(10))
+        .as("Catalog item title is incorrect")
+        .shouldHave(
+            texts(
+                "Электроника",
+                "Компьютеры и сети",
+                "Бытовая техника",
+                "Стройка и ремонт",
+                "Дом и сад",
+                "Авто и мото",
+                "Красота и спорт",
+                "Детям и мамам",
+                "Работа и офис",
+                "Еда"
+            )
+        );
   }
 
   @Test
