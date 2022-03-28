@@ -5,6 +5,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
+import com.codeborne.selenide.junit5.SoftAssertsExtension;
 import com.epam.tests.listeners.AllureListener;
 import com.epam.training.pageobject.CatalogPage;
 import com.epam.training.pageobject.OnlinerHomePage;
@@ -16,6 +17,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 @ExtendWith(AllureListener.class)
+@ExtendWith(SoftAssertsExtension.class)
 public class HomePageTest extends BaseTest {
 
   @Test
