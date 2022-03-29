@@ -2,17 +2,17 @@ package com.epam.tests.listeners;
 
 import static com.epam.tests.utils.ScreenshotUtils.takeScreenshotAndAttachToAllureReport;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestWatcher;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class AllureListener implements TestWatcher {
 
-  private static final Logger LOG = LogManager.getLogger(AllureListener.class);
+  private static final Logger LOG = LoggerFactory.getLogger(AllureListener.class);
 
   public void testFailed(ExtensionContext context, Throwable cause) {
-    LOG.error("Test Failed for test {}: ", context.getDisplayName());
+    LOG.info("Test Failed for test {}: ", context.getDisplayName());
     takeScreenshotAndAttachToAllureReport();
   }
 

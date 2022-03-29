@@ -1,5 +1,6 @@
 package com.epam.tests.tests;
 
+import static com.codeborne.selenide.CollectionCondition.allMatch;
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$$x;
@@ -25,6 +26,8 @@ public class CatalogPageTest extends BaseTest {
   @DisplayName("'Computers and Networks' menu is visible")
   @Description("checking that 'Computers and Networks' menu is visible")
   public void testComputersAndNetworksMenuIsVisible() {
+    String s = LOG.getName();
+    LOG.info(s);
     $x(OnlinerHomePage.CATALOG_LINK)
         .as("Catalog link is not visible")
         .shouldBe(visible)
@@ -35,7 +38,9 @@ public class CatalogPageTest extends BaseTest {
         .click();
     $$x(CatalogPage.CATALOG_MENU_ITEM_TITLE)
         .as("'Computers and Networks' menu size is incorrect")
-        .shouldHave(size(10));
+        .shouldHave(size(10))
+        .shouldBe(allMatch("all elements in collection is not empty",
+            element -> !element.getText().isEmpty()));
   }
 
   @Test
@@ -43,6 +48,7 @@ public class CatalogPageTest extends BaseTest {
   @DisplayName("product title and product description in 'Components' section is visible")
   @Description("checking that product title and product description in 'Components' section is visible")
   public void testComponentsSectionTitleAndDescriptionIsVisible() {
+    LOG.info("");
     $x(OnlinerHomePage.CATALOG_LINK)
         .as("Catalog link is not visible")
         .shouldBe(visible)
