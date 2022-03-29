@@ -6,14 +6,14 @@ import static com.codeborne.selenide.Selenide.open;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.BeforeEach;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class BaseTest {
 
   private static final String ONLINER_HOME_PAGE_LINK = "https://onliner.by/";
-  protected static final Logger LOG = LogManager.getLogger(BaseTest.class);
+  protected static final Logger LOG = LoggerFactory.getLogger(BaseTest.class);
 
   @BeforeEach
   void setUp() {
