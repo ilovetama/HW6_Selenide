@@ -26,8 +26,7 @@ public class CatalogPageTest extends BaseTest {
   @DisplayName("'Computers and Networks' menu is visible")
   @Description("checking that 'Computers and Networks' menu is visible")
   public void testComputersAndNetworksMenuIsVisible() {
-    String s = LOG.getName();
-    LOG.info(s);
+    LOG.info("INFO FROM TEST");
     $x(OnlinerHomePage.CATALOG_LINK)
         .as("Catalog link is not visible")
         .shouldBe(visible)
