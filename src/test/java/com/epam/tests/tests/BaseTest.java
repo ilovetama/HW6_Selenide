@@ -5,6 +5,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.apache.log4j.Logger;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,6 +16,7 @@ public class BaseTest {
   protected static final Logger LOG = Logger.getLogger(BaseTest.class);
 
   @BeforeEach
+  @Step("Browser starting")
   void setUp() {
     SelenideLogger.addListener("AllureSelenide",
         (new AllureSelenide()).screenshots(true).savePageSource(false));

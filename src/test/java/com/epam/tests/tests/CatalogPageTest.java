@@ -30,17 +30,17 @@ public class CatalogPageTest extends BaseTest {
   public void testComputersAndNetworksMenuIsVisible() {
     LOG.info("Check 'Computers and Networks' menu is visible");
     $x(OnlinerHomePage.CATALOG_LINK)
-        .as("Catalog link is not visible")
+        .as("Click on 'Catalog' link")
         .shouldBe(visible)
         .click();
     $x(CatalogPage.CATALOG_CLASSIFIER_LINK)
-        .as("'Computers and Networks' link is not visible")
+        .as("Click on 'Computers and Networks' link")
         .shouldBe(visible)
         .click();
     $$x(CatalogPage.CATALOG_MENU_ITEM_TITLE)
-        .as("'Computers and Networks' menu size is incorrect")
+        .as("Check 'Computers and Networks' menu item size")
         .shouldHave(size(10))
-        .shouldBe(allMatch("collection element is empty",
+        .shouldBe(allMatch("Collection`s element is empty",
             element -> !element.getText().isEmpty()));
   }
 
@@ -52,26 +52,26 @@ public class CatalogPageTest extends BaseTest {
   public void testComponentsSectionTitleAndDescriptionIsVisible() {
     LOG.info("Check product title and product description in 'Components' section are visible");
     $x(OnlinerHomePage.CATALOG_LINK)
-        .as("Catalog link is not visible")
+        .as("Click on 'Catalog' link")
         .shouldBe(visible)
         .click();
     $x(CatalogPage.CATALOG_CLASSIFIER_LINK)
-        .as("'Computers and Networks' link is not visible")
+        .as("Click on 'Computers and Networks' link")
         .shouldBe(visible)
         .click();
     $x(CatalogPage.CATALOG_CLASSIFIER_CATEGORY_LINK)
-        .as("'Components' link is not visible")
+        .as("Click on 'Components' link")
         .shouldBe(visible)
         .click();
     $$x(CatalogPage.PRODUCT_TITLE)
-        .as("Product title quantity is incorrect in 'Components' section")
+        .as("Check 'Product title' quantity in 'Components' section")
         .shouldHave(size(13))
-        .shouldBe(allMatch("collection element is empty",
+        .shouldBe(allMatch("Collection`s element is empty",
             element -> !element.getText().isEmpty()));
     $$x(CatalogPage.PRODUCT_DESCRIPTION)
-        .as("Product description quantity is incorrect or empty in 'Components' section")
+        .as("Check 'Product description' quantity in 'Components' section")
         .shouldHave(size(13))
-        .shouldBe(allMatch("collection element is empty",
+        .shouldBe(allMatch("Collection`s element is empty",
             element -> !element.getText().isEmpty()));
   }
 }

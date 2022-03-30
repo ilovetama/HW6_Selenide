@@ -29,13 +29,13 @@ public class HomePageTest extends BaseTest {
   public void testCatalogItemTitleIsVisible() {
     LOG.info("Check  catalog item title is visible");
     $x(OnlinerHomePage.CATALOG_LINK)
-        .as("Catalog link is not visible")
+        .as("Click on 'Catalog' link")
         .shouldBe(visible)
         .click();
     $$x(CatalogPage.CATALOG_ITEM_TITLE)
-        .as("Catalog item title quantity is incorrect")
+        .as("Check 'Catalog' item title quantity")
         .shouldHave(size(10))
-        .as("Catalog item title is incorrect")
+        .as("Check 'Catalog' item title content")
         .shouldHave(
             texts(
                 "Электроника",
