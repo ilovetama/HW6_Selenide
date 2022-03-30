@@ -31,18 +31,18 @@ public class CatalogPageTest extends BaseTest {
         .as("Catalog link is not visible")
         .shouldBe(visible)
         .click();
-    LOG.error("Catalog link is not visible");
+    LOG.debug("Catalog link is not visible");
     $x(CatalogPage.CATALOG_CLASSIFIER_LINK)
         .as("'Computers and Networks' link is not visible")
         .shouldBe(visible)
         .click();
-    LOG.error("'Computers and Networks' link is not visible");
+    LOG.debug("'Computers and Networks' link is not visible");
     $$x(CatalogPage.CATALOG_MENU_ITEM_TITLE)
         .as("'Computers and Networks' menu size is incorrect")
         .shouldHave(size(10))
         .shouldBe(allMatch("collection element is empty",
             element -> !element.getText().isEmpty()));
-    LOG.error("'Computers and Networks' menu size is incorrect or empty");
+    LOG.debug("'Computers and Networks' menu size is incorrect or empty");
   }
 
   @Test
