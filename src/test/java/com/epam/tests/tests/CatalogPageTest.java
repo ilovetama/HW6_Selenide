@@ -11,6 +11,7 @@ import com.epam.tests.listeners.AllureListener;
 import com.epam.training.pageobject.CatalogPage;
 import com.epam.training.pageobject.OnlinerHomePage;
 import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -23,6 +24,7 @@ public class CatalogPageTest extends BaseTest {
 
   @Test
   @Tag("test2")
+  @Step("'Computers and Networks' menu is visible")
   @DisplayName("'Computers and Networks' menu is visible")
   @Description("Check 'Computers and Networks' menu is visible")
   public void testComputersAndNetworksMenuIsVisible() {
@@ -44,6 +46,7 @@ public class CatalogPageTest extends BaseTest {
 
   @Test
   @Tag("test3")
+  @Step("Product title and product description in 'Components' section is visible")
   @DisplayName("Product title and product description in 'Components' section is visible")
   @Description("Check product title and product description in 'Components' section are visible")
   public void testComponentsSectionTitleAndDescriptionIsVisible() {

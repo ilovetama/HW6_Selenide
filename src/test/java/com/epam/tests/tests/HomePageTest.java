@@ -11,6 +11,7 @@ import com.epam.tests.listeners.AllureListener;
 import com.epam.training.pageobject.CatalogPage;
 import com.epam.training.pageobject.OnlinerHomePage;
 import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -22,6 +23,7 @@ public class HomePageTest extends BaseTest {
 
   @Test
   @Tag("test1")
+  @Step("Check catalog item title is visible")
   @DisplayName("Catalog item title is visible")
   @Description("Check catalog item title is visible")
   public void testCatalogItemTitleIsVisible() {
@@ -52,6 +54,7 @@ public class HomePageTest extends BaseTest {
 
   @Test
   @Tag("test4")
+  @Step("Screenshot is taken when test is failed")
   @DisplayName("Screenshot is taken when test is failed")
   @Description("Check screenshot is taken when test is failed")
   public void testShouldBeFailed() {
@@ -62,6 +65,7 @@ public class HomePageTest extends BaseTest {
 
   @Test
   @Tag("test5")
+  @Step("Screenshot is taken when test is skipped")
   @DisplayName("Screenshot is taken when test is skipped")
   @Description("Check screenshot is taken when test is skipped")
   public void testShouldBeSkipped() {
