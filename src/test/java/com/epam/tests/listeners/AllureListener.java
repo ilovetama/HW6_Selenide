@@ -16,6 +16,10 @@ public class AllureListener implements TestWatcher {
     takeScreenshotAndAttachToAllureReport();
   }
 
+  public void testSuccessful(ExtensionContext context) {
+    LOG.info("Test Successful for test {}: ", context.getDisplayName());
+  }
+
   public void testAborted(ExtensionContext context, Throwable cause) {
     LOG.warn("Test Aborted for test {}: ", context.getDisplayName());
     takeScreenshotAndAttachToAllureReport();

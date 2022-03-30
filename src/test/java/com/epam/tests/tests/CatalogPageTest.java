@@ -24,9 +24,9 @@ public class CatalogPageTest extends BaseTest {
   @Test
   @Tag("test2")
   @DisplayName("'Computers and Networks' menu is visible")
-  @Description("checking that 'Computers and Networks' menu is visible")
+  @Description("Checking that 'Computers and Networks' menu is visible")
   public void testComputersAndNetworksMenuIsVisible() {
-    LOG.info("INFO FROM TEST");
+    LOG.info("Checking that 'Computers and Networks' menu is visible");
     $x(OnlinerHomePage.CATALOG_LINK)
         .as("Catalog link is not visible")
         .shouldBe(visible)
@@ -38,14 +38,15 @@ public class CatalogPageTest extends BaseTest {
     $$x(CatalogPage.CATALOG_MENU_ITEM_TITLE)
         .as("'Computers and Networks' menu size is incorrect")
         .shouldHave(size(10))
-        .shouldBe(allMatch("all elements in collection is not empty",
+        .shouldBe(allMatch("collection element is empty",
             element -> !element.getText().isEmpty()));
+
   }
 
   @Test
   @Tag("test3")
-  @DisplayName("product title and product description in 'Components' section is visible")
-  @Description("checking that product title and product description in 'Components' section is visible")
+  @DisplayName("Product title and product description in 'Components' section is visible")
+  @Description("Checking that product title and product description in 'Components' section is visible")
   public void testComponentsSectionTitleAndDescriptionIsVisible() {
     LOG.info("");
     $x(OnlinerHomePage.CATALOG_LINK)
@@ -62,9 +63,13 @@ public class CatalogPageTest extends BaseTest {
         .click();
     $$x(CatalogPage.PRODUCT_TITLE)
         .as("Product title quantity is incorrect in 'Components' section")
-        .shouldHave(size(13));
+        .shouldHave(size(13))
+        .shouldBe(allMatch("collection element is empty",
+            element -> !element.getText().isEmpty()));
     $$x(CatalogPage.PRODUCT_DESCRIPTION)
         .as("Product description quantity is incorrect in 'Components' section")
-        .shouldHave(size(13));
+        .shouldHave(size(13))
+        .shouldBe(allMatch("collection element is empty",
+            element -> !element.getText().isEmpty()));
   }
 }

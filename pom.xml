@@ -15,7 +15,6 @@
     <chrome.driver.path>${project.basedir}/src/test/resources/chromedriver.exe</chrome.driver.path>
     <firefox.driver.path>${project.basedir}/src/test/resources/geckodriver.exe</firefox.driver.path>
     <selenium.version>4.1.2</selenium.version>
-    <log4j.version>2.17.1</log4j.version>
     <jupiter.version>5.8.2</jupiter.version>
     <aspectj.version>1.9.4</aspectj.version>
     <allure.version>2.17.3</allure.version>
