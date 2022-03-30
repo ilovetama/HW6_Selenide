@@ -23,9 +23,10 @@ public class HomePageTest extends BaseTest {
 
   @Test
   @Tag("test1")
-  @DisplayName("catalog item title is visible")
-  @Description("checking that catalog item title is visible")
+  @DisplayName("Catalog item title is visible")
+  @Description("Check catalog item title is visible")
   public void testCatalogItemTitleIsVisible() {
+    LOG.info("Check  catalog item title is visible");
     $x(OnlinerHomePage.CATALOG_LINK)
         .as("Catalog link is not visible")
         .shouldBe(visible)
@@ -52,20 +53,22 @@ public class HomePageTest extends BaseTest {
 
   @Test
   @Tag("test4")
-  @DisplayName("screenshot is taken when test is failed")
-  @Description("checking that screenshot is taken when test is failed")
+  @DisplayName("Screenshot is taken when test is failed")
+  @Description("Check screenshot is taken when test is failed")
   public void testShouldBeFailed() {
+    LOG.info("Check screenshot is taken when test is failed");
     $x(OnlinerHomePage.CATALOG_LINK).click();
     $$x(CatalogPage.CATALOG_ITEM_TITLE).shouldHave(size(11));
   }
 
   @Test
-  @Disabled("screenshot creation checking")
+  @Disabled("Screenshot creation checking")
   @Tag("test5")
-  @DisplayName("screenshot is taken when test is skipped")
-  @Description("checking that screenshot is taken when test is skipped")
+  @DisplayName("Screenshot is taken when test is skipped")
+  @Description("Check screenshot is taken when test is skipped")
   public void testShouldBeSkipped() {
-    $x(OnlinerHomePage.CATALOG_LINK).click();
+    LOG.info("Check screenshot is taken when test is skipped");
+    $x(OnlinerHomePage.BAD_CATALOG_LINK).click();
     $$x(CatalogPage.CATALOG_ITEM_TITLE).shouldHave(size(11));
   }
 }
