@@ -27,7 +27,7 @@ public class HomePageTest extends BaseTest {
   @DisplayName("Catalog item title is visible")
   @Description("Check catalog item title is visible")
   public void testCatalogItemTitleIsVisible() {
-    LOG.info("Check  catalog item title is visible");
+    LOG.info("Check catalog item title is visible");
     $x(OnlinerHomePage.CATALOG_LINK)
         .as("Click on 'Catalog' link")
         .shouldBe(visible)

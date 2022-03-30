@@ -25,6 +25,6 @@ public class BaseTest {
     Configuration.assertionMode = SOFT;
     Configuration.browserSize = "1600x900";
     open(ONLINER_HOME_PAGE_LINK);
-    LOG.info("Precondition is OK. Tests are running");
+    LOG.info("Precondition is OK. Test is running");
   }
 }
