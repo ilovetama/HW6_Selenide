@@ -40,7 +40,6 @@ public class CatalogPageTest extends BaseTest {
         .shouldHave(size(10))
         .shouldBe(allMatch("collection element is empty",
             element -> !element.getText().isEmpty()));
-
   }
 
   @Test
