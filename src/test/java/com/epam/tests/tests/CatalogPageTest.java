@@ -24,51 +24,59 @@ public class CatalogPageTest extends BaseTest {
   @Test
   @Tag("test2")
   @DisplayName("'Computers and Networks' menu is visible")
-  @Description("Checking that 'Computers and Networks' menu is visible")
+  @Description("Check 'Computers and Networks' menu is visible")
   public void testComputersAndNetworksMenuIsVisible() {
-    LOG.info("Checking that 'Computers and Networks' menu is visible");
+    LOG.info("Check 'Computers and Networks' menu is visible");
     $x(OnlinerHomePage.CATALOG_LINK)
         .as("Catalog link is not visible")
         .shouldBe(visible)
         .click();
+    LOG.error("Catalog link is not visible");
     $x(CatalogPage.CATALOG_CLASSIFIER_LINK)
         .as("'Computers and Networks' link is not visible")
         .shouldBe(visible)
         .click();
+    LOG.error("'Computers and Networks' link is not visible");
     $$x(CatalogPage.CATALOG_MENU_ITEM_TITLE)
         .as("'Computers and Networks' menu size is incorrect")
         .shouldHave(size(10))
         .shouldBe(allMatch("collection element is empty",
             element -> !element.getText().isEmpty()));
+    LOG.error("'Computers and Networks' menu size is incorrect or empty");
   }
 
   @Test
   @Tag("test3")
   @DisplayName("Product title and product description in 'Components' section is visible")
-  @Description("Checking that product title and product description in 'Components' section is visible")
+  @Description("Check product title and product description in 'Components' section are visible")
   public void testComponentsSectionTitleAndDescriptionIsVisible() {
-    LOG.info("");
+    LOG.info("Check product title and product description in 'Components' section are visible");
     $x(OnlinerHomePage.CATALOG_LINK)
         .as("Catalog link is not visible")
         .shouldBe(visible)
         .click();
+    LOG.error("Catalog link is not visible");
     $x(CatalogPage.CATALOG_CLASSIFIER_LINK)
         .as("'Computers and Networks' link is not visible")
         .shouldBe(visible)
         .click();
+    LOG.error("'Computers and Networks' link is not visible");
     $x(CatalogPage.CATALOG_CLASSIFIER_CATEGORY_LINK)
         .as("'Components' link is not visible")
         .shouldBe(visible)
         .click();
+    LOG.error("'Components' link is not visible");
     $$x(CatalogPage.PRODUCT_TITLE)
         .as("Product title quantity is incorrect in 'Components' section")
         .shouldHave(size(13))
         .shouldBe(allMatch("collection element is empty",
             element -> !element.getText().isEmpty()));
+    LOG.error("Product title quantity is incorrect in 'Components' section");
     $$x(CatalogPage.PRODUCT_DESCRIPTION)
-        .as("Product description quantity is incorrect in 'Components' section")
+        .as("Product description quantity is incorrect or empty in 'Components' section")
         .shouldHave(size(13))
         .shouldBe(allMatch("collection element is empty",
             element -> !element.getText().isEmpty()));
+    LOG.error("Product description quantity is incorrect or empty in 'Components' section");
   }
 }
