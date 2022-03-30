@@ -11,7 +11,6 @@ import com.epam.tests.listeners.AllureListener;
 import com.epam.training.pageobject.CatalogPage;
 import com.epam.training.pageobject.OnlinerHomePage;
 import io.qameta.allure.Description;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -62,7 +61,6 @@ public class HomePageTest extends BaseTest {
   }
 
   @Test
-  @Disabled("Screenshot creation checking")
   @Tag("test5")
   @DisplayName("Screenshot is taken when test is skipped")
   @Description("Check screenshot is taken when test is skipped")
