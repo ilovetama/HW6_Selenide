@@ -12,13 +12,16 @@
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
     <encoding>UTF-8</encoding>
-    <chrome.driver.path>${project.basedir}/src/test/resources/chromedriver.exe</chrome.driver.path>
-    <firefox.driver.path>${project.basedir}/src/test/resources/geckodriver.exe</firefox.driver.path>
+    <chrome.driver.path>${project.basedir}/src/test/resources/drivers/chromedriver.exe
+    </chrome.driver.path>
+    <firefox.driver.path>${project.basedir}/src/test/resources/drivers/geckodriver.exe
+    </firefox.driver.path>
     <selenium.version>4.1.2</selenium.version>
     <jupiter.version>5.8.2</jupiter.version>
     <aspectj.version>1.9.4</aspectj.version>
     <allure.version>2.17.3</allure.version>
     <slf4j.version>1.7.36</slf4j.version>
+    <cucumber.version>7.2.3</cucumber.version>
   </properties>
 
   <dependencies>
@@ -115,6 +118,16 @@
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-api</artifactId>
       <version>4.1.2</version>
+    </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit</artifactId>
+      <version>${cucumber.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>${cucumber.version}</version>
     </dependency>
   </dependencies>
 

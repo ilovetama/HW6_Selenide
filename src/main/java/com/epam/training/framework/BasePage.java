@@ -1,9 +1,9 @@
 package com.epam.training.framework;
 
 import com.google.common.base.Supplier;
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
@@ -47,12 +47,12 @@ public abstract class BasePage {
   }
 
   public List<WebElement> waitForElementsVisible(By by) {
-    Wait<WebDriver> wait = new WebDriverWait(driver, DRIVER_WAIT_TIME);
+    Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(DRIVER_WAIT_TIME));
     return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
   }
 
   public WebElement waitForElementVisible(By by) {
-    Wait<WebDriver> wait = new WebDriverWait(driver, DRIVER_WAIT_TIME);
+    Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(DRIVER_WAIT_TIME));
     return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
   }
 
@@ -61,9 +61,7 @@ public abstract class BasePage {
   }
 
   public boolean isExists(By by) {
-    return this.defineStateWithoutTimeouts(() -> {
-      return !driver.findElements(by).isEmpty();
-    });
+    return this.defineStateWithoutTimeouts(() -> !driver.findElements(by).isEmpty());
   }
 
   private WebElement getFirstVisibleElement(By locator) {
@@ -91,11 +89,11 @@ public abstract class BasePage {
 
   private void setTimeOutsToDefault() {
     driver.manage().timeouts()
-        .implicitlyWait(DEFAULT_IMPLICIT_WAIT_TIMEOUT, TimeUnit.SECONDS);
+        .implicitlyWait(Duration.ofSeconds(DEFAULT_IMPLICIT_WAIT_TIMEOUT));
   }
 
   private void removeTimeOuts() {
-    driver.manage().timeouts().implicitlyWait(3L, TimeUnit.SECONDS);
+    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3L));
   }
 
   public void closeBrowser() {

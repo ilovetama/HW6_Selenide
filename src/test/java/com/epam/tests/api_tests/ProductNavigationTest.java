@@ -35,7 +35,7 @@ public class ProductNavigationTest extends BaseTest {
 
     ProductService productService = new ProductService();
     List<ProductFacet> productFacets = productService.getProductFacetItems();
-    productFacets.forEach(System.out::println);
+    LOG.info(productFacets);
   }
 
   @AfterAll
