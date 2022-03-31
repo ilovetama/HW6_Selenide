@@ -1,4 +1,4 @@
-package com.epam.tests.tests;
+package com.epam.tests.selenide_tests;
 
 import static com.codeborne.selenide.CollectionCondition.allMatch;
 import static com.codeborne.selenide.CollectionCondition.size;
@@ -19,7 +19,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 @ExtendWith(AllureListener.class)
 @ExtendWith(SoftAssertsExtension.class)
-
 public class CatalogPageTest extends BaseTest {
 
   @Test

@@ -1,4 +1,4 @@
-package com.epam.tests.tests;
+package com.epam.tests.selenide_tests;
 
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.CollectionCondition.texts;

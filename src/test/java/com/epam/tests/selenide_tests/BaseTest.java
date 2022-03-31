@@ -1,4 +1,4 @@
-package com.epam.tests.tests;
+package com.epam.tests.selenide_tests;
 
 import static com.codeborne.selenide.AssertionMode.SOFT;
 import static com.codeborne.selenide.Selenide.open;
