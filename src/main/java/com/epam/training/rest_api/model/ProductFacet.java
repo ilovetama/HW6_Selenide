@@ -70,7 +70,7 @@ public class ProductFacet {
         ", key='" + key + '\'' +
         ", name='" + name + '\'' +
         ", full_name='" + full_name + '\'' +
-        '}';
+        '}' + '\n';
   }
 }
 

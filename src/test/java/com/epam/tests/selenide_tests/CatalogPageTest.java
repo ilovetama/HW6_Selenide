@@ -38,9 +38,10 @@ public class CatalogPageTest extends BaseTest {
         .click();
     $$x(CatalogPage.CATALOG_MENU_ITEM_TITLE)
         .as("Check 'Computers and Networks' menu item size")
-        .shouldHave(size(10))
+        .shouldHave(size(11))
         .shouldBe(allMatch("Collection`s element is empty",
             element -> !element.getText().isEmpty()));
+    LOG.info($$x(CatalogPage.CATALOG_MENU_ITEM_TITLE).toString());
   }
 
   @Test

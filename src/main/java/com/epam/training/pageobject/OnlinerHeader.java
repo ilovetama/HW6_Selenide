@@ -13,8 +13,8 @@ public class OnlinerHeader extends BasePage {
             .click();
     }
 
-    public CatalogPage clickOnCatalogNavigationLink() {
-        clickOnMainNavigationLink("Каталог");
+    public CatalogPage clickOnCatalogNavigationLink(String link) {
+        clickOnMainNavigationLink(link);
         return new CatalogPage();
     }
 }
