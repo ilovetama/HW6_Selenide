@@ -2,20 +2,18 @@ package com.epam.training.rest_api.utils;
 
 import static io.restassured.RestAssured.given;
 
+import io.qameta.allure.Step;
 import io.restassured.response.ResponseBody;
 import java.util.Map;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.http.HttpStatus;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public final class GetRequestUtils {
-
-    private static final Logger LOG = LoggerFactory.getLogger(GetRequestUtils.class);
 
     private GetRequestUtils() {
     }
 
+    @Step("Make request and get response body")
     public static ResponseBody makeRequestAndGetResponseBody(String endpoint,
         Map<String, Object> headers,
         Map<String, Object> params) {

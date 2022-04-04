@@ -48,20 +48,9 @@
       <version>${jupiter.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.junit.vintage</groupId>
-      <artifactId>junit-vintage-engine</artifactId>
-      <version>${jupiter.version}</version>
-    </dependency>
-    <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-params</artifactId>
       <version>${jupiter.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>7.4.0</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>io.rest-assured</groupId>
@@ -138,6 +127,14 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M5</version>
         <configuration>
+          <forkCount>4</forkCount>
+          <reuseForks>true</reuseForks>
+          <properties>
+            <configurationParamaters>
+              junit.jupiter.execution.parallel.enabled=true
+              junit.jupiter.execution.parallel.mode.default=concurrent
+            </configurationParamaters>
+          </properties>
           <argLine>
             -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
           </argLine>

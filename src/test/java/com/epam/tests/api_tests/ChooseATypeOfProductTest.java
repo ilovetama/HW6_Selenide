@@ -3,6 +3,7 @@ package com.epam.tests.api_tests;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.codeborne.selenide.junit5.SoftAssertsExtension;
+import com.epam.tests.listeners.AllureListener;
 import com.epam.training.rest_api.service.ProductService;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+@ExtendWith(AllureListener.class)
 @ExtendWith(SoftAssertsExtension.class)
 public class ChooseATypeOfProductTest extends BaseTest {
 

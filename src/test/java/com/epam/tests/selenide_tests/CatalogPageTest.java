@@ -22,7 +22,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 public class CatalogPageTest extends BaseTest {
 
   @Test
-  @Tag("test2")
   @Step("'Computers and Networks' menu is visible")
   @DisplayName("'Computers and Networks' menu is visible")
   @Description("Check 'Computers and Networks' menu is visible")
@@ -38,10 +37,10 @@ public class CatalogPageTest extends BaseTest {
         .click();
     $$x(CatalogPage.CATALOG_MENU_ITEM_TITLE)
         .as("Check 'Computers and Networks' menu item size")
-        .shouldHave(size(10))
+        .shouldHave(size(CatalogPage.QUANTITY_OF_MENU_ITEMS))
         .shouldBe(allMatch("Collection`s element is empty",
             element -> !element.getText().isEmpty()));
-    LOG.info($$x(CatalogPage.CATALOG_MENU_ITEM_TITLE).toString());
+    LOG.info($$x(CatalogPage.CATALOG_MENU_ITEM_TITLE));
   }
 
   @Test

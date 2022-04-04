@@ -32,6 +32,7 @@ public class CatalogPage extends BasePage {
       "//*[@class='catalog-navigation-list__aside-title' and contains(text(), '%s')]";
   private static final String PRODUCT_LINK_XPATH_PATTERN =
       "//*[contains(@class, 'item_active')]//a[.//*[contains(text(), '%s')]]";
+  public static final int QUANTITY_OF_MENU_ITEMS = 10;
 
   public CatalogPage clickOnCatalogClassifierLink(String link) {
     waitForElementVisible(By.xpath(format(CATALOG_CLASSIFIER_LINK_XPATH_PATTERN, link))).click();
