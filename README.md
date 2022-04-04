@@ -11,3 +11,4 @@ clean test -Dselenide.remote=http://localhost:4444/ -Dselenide.browser=firefox
 If use  
 clean test -DdriverType=firefox  
 all tests will be start in parallel mode
+ 
